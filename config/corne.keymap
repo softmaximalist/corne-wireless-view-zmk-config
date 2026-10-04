@@ -128,7 +128,7 @@
             display-name = "Base";
             bindings = <
 &kp TAB  &kp B  &kp L  &kp D             &kp C         &kp V            &kp J                           &kp Y                         &kp O          &kp U          &kp COMMA            &kp DELETE
-&to 1    &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                         &h_cut                        &a_copy        &e_paste       &kp I                &to 2
+&tog 1   &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                         &h_cut                        &a_copy        &e_paste       &kp I                &tog 2
 &none    &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                           &kp F                         &kp SQT        &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
                        &kp LEFT_CONTROL  &kp LEFT_GUI  &kp BACKSPACE    &hold_tap_kp RIGHT_SHIFT SPACE  &hold_tap_kp RIGHT_ALT ENTER  &kp BACKSLASH
             >;
