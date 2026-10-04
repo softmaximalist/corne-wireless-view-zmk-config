@@ -17,6 +17,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
         };
 
         down: down {
@@ -26,6 +27,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
         };
 
         left: left {
@@ -35,6 +37,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
         };
 
         right: right {
@@ -44,6 +47,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
         };
 
         p_undo: p_undo {
@@ -53,6 +57,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI|MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL|MOD_LGUI)>;
         };
 
         h_cut: h_cut {
@@ -62,6 +67,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI|MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL|MOD_LGUI)>;
         };
 
         a_copy: a_copy {
@@ -71,6 +77,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LGUI)>;
         };
 
         e_paste: e_paste {
@@ -80,6 +87,31 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI|MOD_LCTL)>;
+        };
+
+        hold_tap_mo: hold_tap_mo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_MO";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <100>;
+            tapping-term-ms = <200>;
+        };
+
+        hold_tap_kp: hold_tap_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_KP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <100>;
+            flavor = "tap-preferred";
         };
     };
 
@@ -95,10 +127,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB    &kp B  &kp L  &kp D             &kp C         &kp V        &kp J    &kp Y          &kp O          &kp U          &kp COMMA            &kp BSPC
-&to 1      &kp N  &kp R  &kp T             &kp S         &kp G        &p_undo  &h_cut         &a_copy        &e_paste       &kp I                &to 2
-&kp LSHFT  &kp X  &kp Q  &kp M             &kp W         &kp Z        &kp K    &kp F          &kp SQT        &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
-                         &kp LEFT_CONTROL  &kp LEFT_GUI  &kp SPACE    &kp RET  &kp RIGHT_ALT  &kp BACKSLASH
+&kp TAB  &kp B  &kp L  &kp D             &kp C         &kp V            &kp J                           &kp Y                         &kp O          &kp U          &kp COMMA            &kp DELETE
+&to 1    &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                         &h_cut                        &a_copy        &e_paste       &kp I                &to 2
+&none    &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                           &kp F                         &kp SQT        &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
+                       &kp LEFT_CONTROL  &kp LEFT_GUI  &kp BACKSPACE    &hold_tap_kp RIGHT_SHIFT SPACE  &hold_tap_kp RIGHT_ALT ENTER  &kp BACKSLASH
             >;
         };
 
@@ -111,10 +143,10 @@
 
             display-name = "Lower";
             bindings = <
-&kp TAB    &kp N1             &kp N2           &kp N3            &kp N4           &kp N5        &kp N6   &kp N7         &kp N8  &kp N9  &kp N0           &kp BSPC
-&mo 1      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &msc SCRL_DOWN    &kp C_VOLUME_UP  &kp C_MUTE    &left    &down          &up     &right  &kp RIGHT_SHIFT  &mo 2
-&kp LSHFT  &kp F1             &kp F2           &kp F3            &kp F4           &kp F5        &kp F6   &kp F7         &kp F8  &kp F9  &kp F10          &kp ESCAPE
-                                               &kp LEFT_CONTROL  &kp LEFT_GUI     &kp SPACE     &kp RET  &kp RIGHT_ALT  &trans
+&trans  &kp N1   &kp N2   &kp N3             &kp N4           &kp N5        &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &trans
+&trans  &kp F11  &kp F12  &kp K_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_MUTE    &left   &down   &up     &right  &kp F13  &trans
+&trans  &kp F1   &kp F2   &kp F3             &kp F4           &kp F5        &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans
+                          &trans             &trans           &trans        &trans  &trans  &trans
             >;
         };
 
@@ -127,10 +159,10 @@
 
             display-name = "Raise";
             bindings = <
-&kp TAB    &kp EXCL  &kp AT    &kp HASH          &kp DLLR      &kp PRCNT    &kp CARET  &kp AMPS       &kp KP_MULTIPLY  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp BSPC
-&mo 1      &kp LT    &kp LPAR  &kp LBKT          &kp LBRC      &kp MINUS    &kp PLUS   &kp RBRC       &kp RBKT         &kp RPAR              &kp GREATER_THAN      &mo 2
-&kp LSHFT  &trans    &trans    &kp TILDE         &kp UNDER     &trans       &trans     &kp EQUAL      &kp GRAVE        &kp SLASH             &trans                &kp ESCAPE
-                               &kp LEFT_CONTROL  &kp LEFT_GUI  &kp SPACE    &kp RET    &kp RIGHT_ALT  &trans
+&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans
+&trans  &kp LT    &kp LPAR  &kp LBKT   &kp LBRC   &kp MINUS    &kp PLUS   &kp RBRC   &kp RBKT         &kp RPAR              &kp GREATER_THAN      &trans
+&trans  &none     &none     &kp TILDE  &kp UNDER  &none        &none      &kp EQUAL  &kp GRAVE        &kp SLASH             &none                 &trans
+                            &trans     &trans     &trans       &trans     &trans     &trans
             >;
         };
 
