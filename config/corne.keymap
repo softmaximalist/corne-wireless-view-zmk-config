@@ -53,7 +53,7 @@
         p_undo: p_undo {
             compatible = "zmk,behavior-mod-morph";
             label = "P_UNDO";
-            bindings = <&kp P>, <&kp C_AC_UNDO>;
+            bindings = <&kp P>, <&kp Z>;
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI|MOD_LCTL)>;
@@ -63,7 +63,7 @@
         h_cut: h_cut {
             compatible = "zmk,behavior-mod-morph";
             label = "H_CUT";
-            bindings = <&kp H>, <&kp C_AC_CUT>;
+            bindings = <&kp H>, <&kp X>;
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI|MOD_LCTL)>;
@@ -73,7 +73,7 @@
         a_copy: a_copy {
             compatible = "zmk,behavior-mod-morph";
             label = "A_COPY";
-            bindings = <&kp A>, <&kp C_AC_COPY>;
+            bindings = <&kp A>, <&kp C>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LGUI)>;
@@ -83,7 +83,7 @@
         e_paste: e_paste {
             compatible = "zmk,behavior-mod-morph";
             label = "E_PASTE";
-            bindings = <&kp E>, <&kp C_AC_PASTE>;
+            bindings = <&kp E>, <&kp V>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_LGUI)>;
@@ -108,9 +108,9 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <200>;
-            require-prior-idle-ms = <100>;
+            require-prior-idle-ms = <150>;
             flavor = "tap-preferred";
         };
     };
@@ -127,10 +127,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB  &kp B  &kp L  &kp D             &kp C         &kp V            &kp J                           &kp Y                         &kp O          &kp U          &kp COMMA            &kp DELETE
-&tog 1   &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                         &h_cut                        &a_copy        &e_paste       &kp I                &tog 2
-&none    &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                           &kp F                         &kp SQT        &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
-                       &kp LEFT_CONTROL  &kp LEFT_GUI  &kp BACKSPACE    &hold_tap_kp RIGHT_SHIFT SPACE  &hold_tap_kp RIGHT_ALT ENTER  &kp BACKSLASH
+&kp TAB  &kp B  &kp L  &kp D             &kp C         &kp V            &kp J                           &kp Y                         &kp O              &kp U          &kp COMMA            &kp DELETE
+&tog 1   &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                         &h_cut                        &a_copy            &e_paste       &kp I                &tog 2
+&none    &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                           &kp F                         &kp SQT            &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
+                       &kp LEFT_CONTROL  &kp LEFT_GUI  &kp BACKSPACE    &hold_tap_kp RIGHT_SHIFT SPACE  &hold_tap_kp RIGHT_ALT ENTER  &kp RIGHT_CONTROL
             >;
         };
 
@@ -159,10 +159,10 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &kp EXCL  &kp AT    &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans
-&trans  &kp LT    &kp LPAR  &kp LBKT   &kp LBRC   &kp MINUS    &kp PLUS   &kp RBRC   &kp RBKT         &kp RPAR              &kp GREATER_THAN      &trans
-&trans  &none     &none     &kp TILDE  &kp UNDER  &none        &none      &kp EQUAL  &kp GRAVE        &kp SLASH             &none                 &trans
-                            &trans     &trans     &trans       &trans     &trans     &trans
+&trans  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans
+&trans  &kp LT    &kp LPAR   &kp LBKT   &kp LBRC   &kp MINUS    &kp PLUS   &kp RBRC   &kp RBKT         &kp RPAR              &kp GREATER_THAN      &trans
+&trans  &none     &kp SLASH  &kp TILDE  &kp UNDER  &none        &none      &kp EQUAL  &kp GRAVE        &kp BACKSLASH         &none                 &trans
+                             &trans     &trans     &trans       &trans     &trans     &trans
             >;
         };
 
