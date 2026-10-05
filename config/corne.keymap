@@ -89,30 +89,6 @@
             mods = <(MOD_LCTL|MOD_LGUI)>;
             keep-mods = <(MOD_LGUI|MOD_LCTL)>;
         };
-
-        hold_tap_mo: hold_tap_mo {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TAP_MO";
-            bindings = <&mo>, <&kp>;
-
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <100>;
-            tapping-term-ms = <200>;
-        };
-
-        hold_tap_kp: hold_tap_kp {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TAP_KP";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <150>;
-            flavor = "tap-preferred";
-        };
     };
 
     keymap {
@@ -127,10 +103,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB  &kp B  &kp L  &kp D             &kp C         &kp V            &kp J                           &kp Y                         &kp O              &kp U          &kp COMMA            &kp DELETE
-&tog 1   &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                         &h_cut                        &a_copy            &e_paste       &kp I                &tog 2
-&none    &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                           &kp F                         &kp SQT            &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
-                       &kp LEFT_CONTROL  &kp LEFT_GUI  &kp BACKSPACE    &hold_tap_kp RIGHT_SHIFT SPACE  &hold_tap_kp RIGHT_ALT ENTER  &kp RIGHT_CONTROL
+&kp TAB  &kp B  &kp L  &kp D             &kp C         &kp V            &kp J                  &kp Y                &kp O              &kp U          &kp COMMA            &kp DELETE
+&tog 1   &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                &h_cut               &a_copy            &e_paste       &kp I                &tog 2
+&none    &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                  &kp F                &kp SQT            &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
+                       &kp LEFT_CONTROL  &kp LEFT_GUI  &kp BACKSPACE    &mt RIGHT_SHIFT SPACE  &mt RIGHT_ALT ENTER  &kp RIGHT_CONTROL
             >;
         };
 
