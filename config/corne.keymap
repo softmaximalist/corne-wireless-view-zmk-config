@@ -107,7 +107,7 @@
             bindings = <
 &kp TAB  &kp B  &kp L  &kp D             &kp C         &kp V            &kp J                  &kp Y                &kp O              &kp U          &kp COMMA            &kp DELETE
 &tog 1   &kp N  &kp R  &kp T             &kp S         &kp G            &p_undo                &h_cut               &a_copy            &e_paste       &kp I                &tog 2
-&none    &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                  &kp F                &kp SQT            &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
+&tog 3   &kp X  &kp Q  &kp M             &kp W         &kp Z            &kp K                  &kp F                &kp SQT            &kp SEMICOLON  &mt QUESTION PERIOD  &kp ESC
                        &kp LEFT_CONTROL  &kp LEFT_GUI  &kp BACKSPACE    &mt RIGHT_SHIFT SPACE  &mt RIGHT_ALT ENTER  &kp RIGHT_CONTROL
             >;
         };
